@@ -46,6 +46,11 @@ public class Field {
 
 	public void setCellField(int i, int j, String symbol){
 		if(getSIZE_FIELD() -1 <= i || getSIZE_FIELD() - 1 <= j)return;
-		stateField[i][j] = symbol;
+		if(stateField[i][j] == DEFAULT_SYMBOL || stateField[i][j] == null) {
+			this.stateField[i][j] = symbol;
+		} else {
+			System.out.println("Поле занято");
+		}
+
 	}
 }
