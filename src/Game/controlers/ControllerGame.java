@@ -59,7 +59,7 @@ public class ControllerGame {
 		return true;
 	}
 
-//	Проверка победителя
+// проверка по горизонтали
 	private boolean checkHorizonte(Player player){
 		int count;
 //		Проверка по горизонтали
@@ -75,9 +75,10 @@ public class ControllerGame {
 		}
 		return false;
 	}
-	public boolean getWinnerPlayer(Player player){
+
+//	проверка по вертикали
+	private boolean checkVertical(Player player){
 		int count = 0;
-//      Проверка по вертикали
 		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
 			count = 0;
 			for (int j = 0; j < field.getSIZE_FIELD(); j++) {
@@ -87,6 +88,11 @@ public class ControllerGame {
 				if(count == field.getSIZE_FIELD()) return true;
 			}
 		}
+		return false;
+	}
+	//	Проверка победителя
+	public boolean getWinnerPlayer(Player player){
+		int count = 0;
 //		Проверка по диагонали (с лева на право)
 		count = 0;
 		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
