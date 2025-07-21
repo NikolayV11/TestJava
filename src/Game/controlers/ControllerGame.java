@@ -60,9 +60,8 @@ public class ControllerGame {
 	}
 
 //	Проверка победителя
-	private boolean getWinnerPlayer(Player player){
+	public boolean getWinnerPlayer(Player player){
 		int count;
-
 //		Проверка по горизонтали
 		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
 			count = 0;
@@ -99,8 +98,8 @@ public class ControllerGame {
 
 //		Проверка по диагонали (с право на лево)
 		count = 0;
-		for (int i = field.getSIZE_FIELD(); i >= 0; i--) {
-			for (int j = field.getSIZE_FIELD(); j >= 0; j--) {
+		for (int i = field.getSIZE_FIELD()-1; i >= 0; i--) {
+			for (int j = field.getSIZE_FIELD()-1; j >= 0; j--) {
 				if(field.getCellField(i,j) == player.getFIGURE()){
 					count++;
 					break;
@@ -114,7 +113,7 @@ public class ControllerGame {
 	}
 
 //	Получить имя игрока
-	public String getWinnerPlayer(){
+	public String getWinnerNamePlayer(){
 		if(getWinnerPlayer(player1)) {
 			return player1.getNAME();
 		}
