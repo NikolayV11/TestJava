@@ -53,4 +53,8 @@ public class Field {
 		}
 
 	}
+
+	public String getCellField(int i, int j) {
+		return stateField[i][j];
+	}
 }
