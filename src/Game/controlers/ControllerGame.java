@@ -60,7 +60,7 @@ public class ControllerGame {
 	}
 
 //	Проверка победителя
-	public boolean getWinnerPlayer(Player player){
+	private boolean checkHorizonte(Player player){
 		int count;
 //		Проверка по горизонтали
 		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
@@ -71,8 +71,12 @@ public class ControllerGame {
 				}
 				if(count == field.getSIZE_FIELD()) return true;
 			}
-			
+
 		}
+		return false;
+	}
+	public boolean getWinnerPlayer(Player player){
+		int count = 0;
 //      Проверка по вертикали
 		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
 			count = 0;
