@@ -94,28 +94,28 @@ public class ControllerGame {
 //	проверка по диагонали (с верхнего левого угла)
 	private boolean checkDiagonal(Player player){
 		int count = 0;
-		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
-			for (int j = 0; j < field.getSIZE_FIELD(); j++) {
-				if(field.getCellField(i,j) == player.getFIGURE()){
+		if (field.getCellField(0,0) == player.getFIGURE()){
+			for (int i = 0; i < field.getSIZE_FIELD(); i++) {
+				if(field.getCellField(i,i) == player.getFIGURE()){
 					count++;
-					break;
 				}
 			}
 		}
+		if(count == field.getSIZE_FIELD()) return true;
 		return false;
 	}
 
-//  проверка по диагонали (с верхнего левого угла)
+//  проверка по диагонали (с верхнего правого угла)
 private boolean checkDiagonalTwo(Player player){
 	int count = 0;
-	for (int i = field.getSIZE_FIELD()-1; i >= 0; i--) {
-		for (int j = field.getSIZE_FIELD()-1; j >= 0; j--) {
-			if(field.getCellField(i,j) == player.getFIGURE()){
-				count++;
-				break;
-			}
+	if(field.getCellField(field.getSIZE_FIELD() - 1, field.getSIZE_FIELD() - 1) == player.getFIGURE()){
+		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
+			if(field.getCellField(i, field.getSIZE_FIELD() - 1 - i) == player.getFIGURE()) count++;
 		}
 	}
+
+	if(count == field.getSIZE_FIELD()) return true;
+
 	return false;
 }
 
