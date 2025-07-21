@@ -1,4 +1,4 @@
-package controlers;
+package Game.controlers;
 
 import Game.models.Field;
 import Game.models.Player;
