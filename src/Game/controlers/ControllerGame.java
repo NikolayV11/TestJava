@@ -105,26 +105,26 @@ public class ControllerGame {
 		return false;
 	}
 
-	//	Проверка победителя
-	public boolean getWinnerPlayer(Player player){
-		int count = 0;
-
-
-		if(count == field.getSIZE_FIELD()) return true;
-
-//		Проверка по диагонали (с право на лево)
-		count = 0;
-		for (int i = field.getSIZE_FIELD()-1; i >= 0; i--) {
-			for (int j = field.getSIZE_FIELD()-1; j >= 0; j--) {
-				if(field.getCellField(i,j) == player.getFIGURE()){
-					count++;
-					break;
-				}
+//  проверка по диагонали (с верхнего левого угла)
+private boolean checkDiagonalTwo(Player player){
+	int count = 0;
+	for (int i = field.getSIZE_FIELD()-1; i >= 0; i--) {
+		for (int j = field.getSIZE_FIELD()-1; j >= 0; j--) {
+			if(field.getCellField(i,j) == player.getFIGURE()){
+				count++;
+				break;
 			}
 		}
+	}
+	return false;
+}
 
-		if(count == field.getSIZE_FIELD()) return true;
-
+	//	Проверка победителя
+	public boolean getWinnerPlayer(Player player){
+		if(checkHorizonte(player))return true;
+		if(checkVertical(player)) return true;
+		if (checkDiagonal(player)) return true;
+		if (checkDiagonalTwo(player)) return true;
 		return false;
 	}
 
