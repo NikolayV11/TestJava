@@ -90,11 +90,10 @@ public class ControllerGame {
 		}
 		return false;
 	}
-	//	Проверка победителя
-	public boolean getWinnerPlayer(Player player){
+
+//	проверка по диагонали (с верхнего левого угла)
+	private boolean checkDiagonal(Player player){
 		int count = 0;
-//		Проверка по диагонали (с лева на право)
-		count = 0;
 		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
 			for (int j = 0; j < field.getSIZE_FIELD(); j++) {
 				if(field.getCellField(i,j) == player.getFIGURE()){
@@ -103,6 +102,13 @@ public class ControllerGame {
 				}
 			}
 		}
+		return false;
+	}
+
+	//	Проверка победителя
+	public boolean getWinnerPlayer(Player player){
+		int count = 0;
+
 
 		if(count == field.getSIZE_FIELD()) return true;
 
