@@ -108,9 +108,9 @@ public class ControllerGame {
 //  проверка по диагонали (с верхнего правого угла)
 private boolean checkDiagonalTwo(Player player){
 	int count = 0;
-	if(field.getCellField(field.getSIZE_FIELD() - 1, field.getSIZE_FIELD() - 1) == player.getFIGURE()){
+	if(field.getCellField(0, field.getSIZE_FIELD() - 1) == player.getFIGURE()){
 		for (int i = 0; i < field.getSIZE_FIELD(); i++) {
-			if(field.getCellField(i, field.getSIZE_FIELD() - 1 - i) == player.getFIGURE()) count++;
+			if (field.getCellField(i, field.getSIZE_FIELD() - 1 - i) == player.getFIGURE()) count++;
 		}
 	}
 
